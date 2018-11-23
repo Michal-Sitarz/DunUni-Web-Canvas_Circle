@@ -52,13 +52,3 @@ function drawCircle(sizeOfCircle){
 }
 
 drawIconCircle();
-
-/*
-function draw1000circles(){
-    for (i=0;i<1000;i++){
-        drawIconCircle();
-    }
-}
-
-draw1000circles();
-*/
