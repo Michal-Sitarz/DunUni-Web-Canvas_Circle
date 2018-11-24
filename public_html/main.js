@@ -3,10 +3,10 @@ let numberOfCircleIcons = 0;
 
 function drawIconCircle(){
     numberOfCircleIcons++;
-    let circleSize = 64;
+    let circleSize = 100;
     
     addNewCanvas();
-    drawCircle(circleSize);
+    drawCircleSlice(circleSize);
     
 }
 
@@ -40,6 +40,40 @@ function drawCircle(sizeOfCircle){
     
     ctx.beginPath();
     ctx.arc(circleX,circleY,circleSize,circleStart,circleEnd,drawAntiClockwise);
+    // circle fill
+    ctx.fillStyle = 'blue';
+    ctx.fill();
+    
+    // circle stroke
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'black';
+    ctx.stroke();
+    
+}
+
+function drawCircleSlice(sizeOfCircle){
+        
+    let circleCanvas = document.getElementById('circleIcon'+numberOfCircleIcons);
+    circleCanvas.width = sizeOfCircle;
+    circleCanvas.height = sizeOfCircle;
+    
+    let ctx = circleCanvas.getContext('2d');
+    
+    let circleX = sizeOfCircle/2;
+    let circleY = sizeOfCircle/2;
+    let circleSize = (sizeOfCircle/2)-2;
+    
+    //default for full circle
+    let circleStart = 1.5 * Math.PI;
+    let circleEnd = 2 * Math.PI;
+    let drawAntiClockwise = false;
+
+    
+    ctx.beginPath();
+    ctx.arc(circleX,circleY,circleSize,circleStart,circleEnd,drawAntiClockwise);
+    ctx.lineTo(50,50);
+    ctx.lineTo(50,1);
+    //ctx.closePath();
     // circle fill
     ctx.fillStyle = 'orange';
     ctx.fill();
